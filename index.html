@@ -10,9 +10,9 @@
         </div>
 
         <div align="center">
-            <form onsubmit='comicSelect()'>
+            <form>
                 Comic #: <input id="comnum" type="text" value="">
-                <input type="submit" value="Go">
+                <button onclick='comicSelect(document.getElementById("comnum").value);' type='button'>Go</button> 
             </form>
         </div>
 
@@ -50,9 +50,9 @@
                 moveComicTo(comicNum)
             }
 
-            function comicSelect() {
-                comicNum = document.getElementById("comnum").value;
-                moveComicTo(comicNum)
+            function comicSelect(comNum) {
+                comicNum = comNum;
+                moveComicTo(comicNum);
             }
         </script>
     </body>
