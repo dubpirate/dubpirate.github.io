@@ -31,6 +31,9 @@
             document.getElementById("comnum").value = comicNum;
             
             function moveComicTo(comNum) {
+                if (comNum <= 0) {
+                    comNum = 1;
+                }
                 document.getElementById("comnum").value = comNum;
                 document.getElementById("comicstrip").src = "./comics/" + comNum + ".jpg";
             }
@@ -46,7 +49,11 @@
             }
 
             function previousComic() {
-                comicNum--;
+                if (comicNum <=1) {
+                    comicNum = 1;
+                } else {
+                    comicNum--;
+                }
                 moveComicTo(comicNum)
             }
 
