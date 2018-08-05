@@ -11,7 +11,7 @@
 
         <div align="center">
             <form onsubmit='comicSelect()'>
-                Comic #: <input id="comnum" type="text" value="comicNum;">
+                Comic #: <input id="comnum" type="text" value="">
                 <input type="submit" value="Go">
             </form>
         </div>
@@ -28,33 +28,31 @@
 
         <script>
             var comicNum = 1;
-            var path = window.location.pathname;
-            var pathName = path.substring(0, path.lastIndexOf('/') + 1);
-            console.log(path); // get current path, for ex: '/index.php', '/docs/pdf/detail.php'
-            console.log(pathName); // for ex: '/index.php'=>'/', '/docs/pdf/detail.php'=>'/docs/pdf/'
             document.getElementById("comnum").value = comicNum;
+            
+            function moveComicTo(comNum) {
+                document.getElementById("comnum").value = comNum;
+                document.getElementById("comicstrip").src = "./comics/" + comNum + ".jpg";
+            }
 
             function nextComic() {
                 comicNum ++;
-                document.getElementById("comnum").value = comicNum;
-                document.getElementById("comicstrip").src = "./comics/" + comicNum + ".jpg";
+                moveComicTo(comicNum)
             }
 
             function homeComic() {
                 comicNum = 1;
-                document.getElementById("comnum").value = comicNum;
-                document.getElementById("comicstrip").src = "./comics/" + comicNum + ".jpg";
+                moveComicTo(comicNum)
             }
 
             function previousComic() {
                 comicNum--;
-                document.getElementById("comnum").value = comicNum;
-                document.getElementById("comicstrip").src = "./comics/" + comicNum + ".jpg";
+                moveComicTo(comicNum)
             }
 
             function comicSelect() {
                 comicNum = document.getElementById("comnum").value;
-                document.getElementById("comnum").value = comicNum;
+                moveComicTo(comicNum)
             }
         </script>
     </body>
