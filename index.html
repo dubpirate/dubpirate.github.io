@@ -12,7 +12,7 @@
         <div align="center">
             <form onsubmit='comicSelect()'>
                 Comic #: <input id="comnum" type="text" value="comicNum;">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Go">
             </form>
         </div>
 
@@ -37,19 +37,19 @@
             function nextComic() {
                 comicNum ++;
                 document.getElementById("comnum").value = comicNum;
-                document.getElementById("comicstrip").src = "./comics/" + comicNum + ".jpeg";
+                document.getElementById("comicstrip").src = "./comics/" + comicNum + ".jpg";
             }
 
             function homeComic() {
                 comicNum = 1;
                 document.getElementById("comnum").value = comicNum;
-                document.getElementById("comicstrip").src = "./comics/1.jpeg";
+                document.getElementById("comicstrip").src = "./comics/" + comicNum + ".jpg";
             }
 
             function previousComic() {
                 comicNum--;
                 document.getElementById("comnum").value = comicNum;
-                document.getElementById("comicstrip").src = "./comics/" + comicNum + ".jpeg";
+                document.getElementById("comicstrip").src = "./comics/" + comicNum + ".jpg";
             }
 
             function comicSelect() {
