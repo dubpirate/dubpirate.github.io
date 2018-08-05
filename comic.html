@@ -1,0 +1,36 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <div align="center">
+            <h1>Hello</h1>
+        </div>
+
+        <div align="center">
+            <button onclick='previousComic()'>Prev</button>
+            <button onclick='nextComic()'>Next</button>
+        </div>
+
+        <div align="center">
+            <img id="comicstrip" src="" alt="Hi">
+        </div>
+
+        <script>
+            var path = window.location.pathname;
+            var pathName = path.substring(0, path.lastIndexOf('/') + 1);
+            console.log(path); // get current path, for ex: '/index.php', '/docs/pdf/detail.php'
+            console.log(pathName); // for ex: '/index.php'=>'/', '/docs/pdf/detail.php'=>'/docs/pdf/'
+
+            function nextComic() {
+                //window.location.href = window.location.pathname + "/1";
+            }
+
+            function previousComic() {
+                window.location.href = window.location.pathname + "/2";
+            }
+        </script>
+    </body>
+
+</html>
