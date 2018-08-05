@@ -10,7 +10,15 @@
         </div>
 
         <div align="center">
+            <form onsubmit='comicSelect()'>
+                Comic #: <input id="comnum" type="text" value="comicNum;">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div align="center">
             <button onclick='previousComic()'>Prev</button>
+            <button onclick='nextComic()'>Home</button>
             <button onclick='nextComic()'>Next</button>
         </div>
 
@@ -19,17 +27,26 @@
         </div>
 
         <script>
+            var comicNum = 1;
             var path = window.location.pathname;
             var pathName = path.substring(0, path.lastIndexOf('/') + 1);
             console.log(path); // get current path, for ex: '/index.php', '/docs/pdf/detail.php'
             console.log(pathName); // for ex: '/index.php'=>'/', '/docs/pdf/detail.php'=>'/docs/pdf/'
+            document.getElementById("comnum").value = comicNum;
 
             function nextComic() {
-                //window.location.href = window.location.pathname + "/1";
+                comicNum ++;
+                document.getElementById("comnum").value = comicNum;
+                document.getElementById("comicstrip").src = 
             }
 
             function previousComic() {
-                window.location.href = window.location.pathname + "/2";
+                comicNum--;
+                document.getElementById("comnum").value = comicNum;
+            }
+
+            function comicSelect() {
+                document.getElementById("comnum").value = comicNum;
             }
         </script>
     </body>
